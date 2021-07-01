@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<title>ちょーてきとーなサイト</title>
+<body>
+<style>
+h1 {
+    font-weight: normal;
+    padding-bottom: 10px;
+    text-align: center;
+    position: -webkit-sticky;
+position: sticky;
+top: 20px;
+z-index: 10;
+    margin: 0 0 1px 0;
+    letter-spacing: 5px;
+    opacity: 1;
+
+}
+h2 {
+    font-weight: normal;
+    padding-bottom: 10px;
+    text-align: reft;
+    position: -webkit-sticky;
+position: sticky;
+top: 20px;
+z-index: 10;
+    margin: 0 0 1px 0;
+    letter-spacing: 5px;
+    opacity: 1;
+
+}
+
+p {
+    width: 50%;
+    line-height: 2;
+    display: inline-block;
+    background-color: #696969;
+    padding: 20px;
+    position: relative;
+    z-index: 999;
+    margin: 50px 0 0;
+    color: #fff;
+    letter-spacing: 2px;
+    opacity: 0.75;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1DA1F2;
+    display: block;
+    padding: 20px 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 0 #696969
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    margin: 11px auto 0;
+    letter-spacing: 2px;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000000;
+    display: block;
+    padding: 20px 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 0 #696969
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    margin: 11px auto 0;
+    letter-spacing: 2px;
+}
+
+h1::after {
+    content: "";
+    display: blue;
+    border-bottom: solid 5px #191970;
+    position: absolute;
+    width: 500px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: -5px;
+}
+
+html {
+    background-color: #a8e4ff;
+}
+
+body {
+    background-color: #fff;
+    padding: 30px 30px 30px;
+    max-width: 700px;
+    margin: 20px auto;#
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 3px;
+    position: relative;
+}
+
+
+
+</style>
+
+    <h1>ゼロくんのほーむぺーじー</h1>
+    <p>ここまでちゃんとしたの作るの初めてっすね
+      特に何も書くことが無いんすよ。装飾もめんどくさい(´・ω・｀)htmlいじるの久しぶりなんすよ、適当に自己紹介でもしとくね。</p>
+      <h2>初めまして</h2>
+      <p>僕の名前はゼロって言うんだ！ゼロくんって呼んでね。Realityとツイキャスで配信してます。Realityは毎日配信してるんだけど、ツイキャスは不定期かな
+    そんなことより最近めっちゃ暑いよね。</p>
+
+      <a href="https://twitter.com/Zero87392564">僕のTwitter</a>
+      <a href="https://t.co/tymZ7uaIj8?amp=1">Reality</a>
+
+
+<script>
+  'use strict';
+
+  const hour = new Date().getHours();
+
+  if(hour >= 18 && hour < 24) {
+     window.alert('こんばんは！ようこそ僕のホームページへ');
+  }  if(hour >= 8 && hour < 17) {
+    window.alert('こんにちは！見に来てくれてありがとう')
+  }　if(hour >= 1 && hour < 4) {
+    window.alert('夜更かしさんだね！来てくれてありがとうだけどはよ寝ろ')
+  } </script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>5-01_countdown</title>
+  <link href="../../_common/images/favicon.ico" rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:400,500" rel="stylesheet">
+  <link href="../../_common/css/style.css" rel="stylesheet">
+  <style>
+  h2 span {
+      font-size: 1rem;
+  }
+  .timer {
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+  }
+  .timer span {
+      font-size: 72px;
+  }
+  </style>
+
+  <body>
+  <header>
+  <div class="container">
+
+  </div><!-- /.container -->
+  </header>
+  <main>
+  <div class="container">
+  <section>
+  <h2><span>知ってました？</span><br>
+  僕の誕生日まで</h2>
+  <p class="timer">あと<span id="day"></span>日<span id="hour"></span>時間<span id="min"></span>分<span id="sec"></span>秒</p>
+  </section>
+  </div><!-- /.container -->
+  </main>
+  <footer>
+  <div class="container">
+
+  </div><!-- /.container -->
+  </footer>
+  <script>
+  'use strict';
+
+  function countdown(due) {
+  const now = new Date();
+
+  const rest = due.getTime() - now.getTime();
+  const sec = Math.floor(rest / 1000) % 60;
+  const min = Math.floor(rest / 1000 / 60) % 60;
+  const hours = Math.floor(rest / 1000 / 60 / 60) % 24;
+  const days = Math.floor(rest / 1000 / 60 / 60 / 24);
+  const count = [days, hours, min, sec];
+
+  return count;
+  }
+
+  const goal = new Date(2022, 2, 23);
+
+  function recalc() {
+  const counter = countdown(goal);
+  document.getElementById('day').textContent = counter[0];
+  document.getElementById('hour').textContent = counter[1];
+  document.getElementById('min').textContent = String(counter[2]).padStart(2, '0');
+  document.getElementById('sec').textContent = String(counter[3]).padStart(2, '0');
+  refresh();
+  }
+
+  function refresh() {
+  setTimeout(recalc, 1000);
+  }
+  recalc();
+  </script>
+  <style>
+  section img {
+      max-width: 100%;
+  }
+  .center {
+      margin: 10 auto 0 auto;
+      max-width: 90%;
+      width: 300px;
+      position:absolute; top:200px; left:490px
+  }
+
+  }
+  ul {
+      display: flex;
+      margin: 15;
+      padding: 0;
+      list-style-type: none;
+  }
+  li {
+      flex: 1 1 auto;
+      margin-right: 166px;
+  }
+  li:last-of-type {
+      margin-right: 1;
+  }
+  </style>
+
+  <body>
+  <header>
+  <div class="container">
+  </div><!-- /.container -->
+  </header>
+  <main>
+  <div class="container">
+  <section>
+      <div class="center">
+          <div>
+              <img src="https://pbs.twimg.com/media/E4TD1b2UcAQ72Au?format=jpg&name=orig" class="thumb" data-image="https://pbs.twimg.com/media/E4TD1b2UcAQ72Au?format=jpg&name=orig" id="bigimg">
+          </div>
+          <ul>
+              <li><img src="https://pbs.twimg.com/media/E4TD1b2UcAQ72Au?format=jpg&name=orig" class="thumb" data-image="https://pbs.twimg.com/media/E4TD1b2UcAQ72Au?format=jpg&name=orig"></li>
+
+              <li><img src="https://pbs.twimg.com/media/E5Im-kyVoAMP_Q-?format=jpg&name=small" class="thumb" data-image="https://pbs.twimg.com/media/E5Im-kyVoAMP_Q-?format=jpg&name=small"></li>
+
+              <li><img src="https://pbs.twimg.com/media/E5Im-kzVIAIcZLy?format=jpg&name=small" class="thumb" data-image="https://pbs.twimg.com/media/E5Im-kzVIAIcZLy?format=jpg&name=small"></li>
+
+          </ul>
+      </div>
+  </section>
+  </div><!-- /.container -->
+  </main>
+  <footer>
+  <div class="container">
+
+  </div><!-- /.container -->
+  </footer>
+  <script>
+  'use strict';
+
+  const thumbs = document.querySelectorAll('.thumb');
+  thumbs.forEach(function(item, index) {
+      item.onclick = function() {
+          document.getElementById('bigimg').src = this.dataset.image;
+      }
+  });
+  </script>
+
+
+      </body>
+      </html>
